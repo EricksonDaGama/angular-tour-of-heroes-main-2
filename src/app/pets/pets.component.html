@@ -1,7 +1,17 @@
-<!-- pets.component.html -->
-<h2>Pets</h2>
-<ul>
+<h2>My Pets</h2>
+<div>
+  <label for="new-pet">Pet name:</label>
+  <input id="new-pet" #petName placeholder="name">
+  <button mat-flat-button color="primary" (click)="add(petName.value); petName.value=''">
+    Add Pet
+  </button>
+</div>
+
+<ul class="pets">
   <li *ngFor="let pet of pets">
-    {{ pet.name }}
+    <span>{{ pet.name }}</span>
+    <button mat-icon-button color="warn" (click)="delete(pet)">
+      <mat-icon>delete</mat-icon>
+    </button>
   </li>
 </ul>
